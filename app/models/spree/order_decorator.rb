@@ -1,7 +1,7 @@
 Spree::Order.class_eval do
   validate :skype
 
-  def associate_user!(user, override_email = true)
+  def associate_user!(user, override_email = true, override_skype = true)
     self.user           = user
     self.email          = user.email if override_email
     self.skype          = user.skype if override_skype
@@ -12,4 +12,3 @@ Spree::Order.class_eval do
     changes = slice(:user_id, :email, :skype, :created_by_id, :bill_address_id, :ship_address_id)
     self.class.unscoped.where(id: self).update_all(changes)
   end
-end

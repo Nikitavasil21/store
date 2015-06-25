@@ -43,6 +43,14 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'capybara'
+
+  gem 'rspec-rails'
+
+  gem 'factory_girl_rails'
+end
+
 
 gem 'spree', '3.0.1'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
